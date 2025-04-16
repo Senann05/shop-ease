@@ -1,0 +1,32 @@
+/* src/styles/ProductDetail.css */
+
+.product-detail {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .product-detail img {
+    width: 300px;
+    border-radius: 10px;
+  }
+  
+  .product-info {
+    max-width: 600px;
+  }
+  
+  .product-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .product-info p {
+    margin: 10px 0;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: green;
+    font-size: 24px;
+  }
+  
