@@ -1,13 +1,18 @@
 import ProductList from "./components/ProductList";
-import ProductDetail from "./pages/ProductDetail";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cart from "./pages/Cart";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App () {
 return(
 <Router>
+  <header>
+    <nav>
+      <Link to="/">Products</Link> | <Link to="/cart">Cart</Link>
+    </nav>
+  </header>
   <Routes>
-    <Route path="/" element={<ProductList/>} />
-    <Route path="/product/:id" element={<ProductDetail/>} />
+    <Route path="/" element={<ProductList/>}/>
+    <Route path="/cart" element={<Cart/>}/>
   </Routes>
 </Router>
 )
