@@ -22,6 +22,7 @@
 import { useState, useEffect } from "react";
 import ProductList from "./components/ProductList";
 import Cart from "./pages/Cart";
+import "./App.css"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
