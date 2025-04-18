@@ -1,7 +1,6 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit";
-import { LoginResponse } from "../../types/userTypes";
-import AuthService from "../../services/authService";
-
+import {  LoginResponse } from "../../types/userTypes";
+import AuthService from "../../services/AuthService";
 interface AuthState{
     user: LoginResponse | null
 }
