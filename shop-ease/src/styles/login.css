@@ -1,0 +1,102 @@
+/* Login Form Container Styling */
+.auth-form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .auth-form h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  /* Form Input Fields Styling */
+  .auth-form form div {
+    margin-bottom: 20px;
+  }
+  
+  .auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5d6778;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dbe0e6;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .auth-form input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  }
+  
+  .auth-form input::placeholder {
+    color: #b3b9c4;
+  }
+  
+  /* Button Styling */
+  .auth-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-form button:hover {
+    background-color: #3a7bc8;
+  }
+  
+  .auth-form button:disabled {
+    background-color: #a5c7f0;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message Styling */
+  .auth-form p {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .auth-form p[style*="color: red"] {
+    color: #e74c3c !important;
+    background-color: #fde8e7;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  /* Loading State Styling */
+  .auth-form p:contains("Loading...") {
+    color: #7f8c8d;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .auth-form {
+      padding: 20px;
+      margin: 20px auto;
+    }
+  }

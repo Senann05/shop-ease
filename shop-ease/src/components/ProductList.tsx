@@ -2,7 +2,7 @@
 import { useGetAllProductsQuery } from '../features/products/productApi'
 import { useAppDispatch } from '../app/hooks'
 import { addToCart } from '../features/cart/cartSlice'
-
+import "../styles/pl.css"
 const ProductList = () => {
   const { data, isLoading, error } = useGetAllProductsQuery()
   const dispatch = useAppDispatch();

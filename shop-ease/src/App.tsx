@@ -24,6 +24,10 @@ import ProductList from "./components/ProductList";
 import Cart from "./pages/Cart";
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -64,8 +68,18 @@ function App() {
           </div>
         </nav>
       </header>
+      <div>
+      <Navbar />
+
       <Routes>
-        <Route path="/" element={<ProductList/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </div>
+      <Routes>        
+        <Route path="/products" element={<ProductList/>}/>
         <Route path="/cart" element={<Cart/>}/>
       </Routes>
     </Router>
