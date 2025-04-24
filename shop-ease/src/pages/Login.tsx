@@ -26,6 +26,7 @@ const Login = ()=>{
     }
     return(
         <div className="auth-form">
+            <p>Login to see products.</p>
             <h2>Login</h2>
             {isLoading && <p>Loading...</p>}
             {error &&<p style={{color: "red"}}>error: User not found</p>}

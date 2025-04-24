@@ -1,22 +1,29 @@
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../app/hooks";
-import LogoutButton from "./LogoutButton";
+import { useAppDispatch } from "../hooks/useAppDispatch";
+import { useAppSelector } from "../hooks/useAppSelector";
+import { logout } from "../features/auth/authSlice";
 
 const Navbar= ()=>{
-    const {user} = useAppSelector((state)=> state.auth)
+    const user = useAppSelector((state)=> state.auth.user)
+    const token = useAppSelector((state)=> state.auth.token)
+    const dispatch = useAppDispatch()
+
+    const handleLogout=()=>{
+      dispatch(logout())
+    }
     return(
         <nav className="navbar">
             <Link to= "/">Home</Link>
-            <Link to="/products">Products</Link>
-            {!user ? (
+            {/* <Link to="/products">Products</Link> */}
+            {token ? (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Regist</Link>
+        <span>{user?.username}</span>
+        <button onClick={handleLogout}></button>
         </>
       ) : (
         <>
-          <span> {user.username}</span>
-          <LogoutButton />
+          <Link to="/login">Login</Link>
+          <Link to="/register">Regist</Link>
         </>)}
         </nav>
     )

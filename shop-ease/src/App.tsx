@@ -1,33 +1,13 @@
-// import ProductList from "./components/ProductList";
-// import Cart from "./pages/Cart";
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-// function App () {
-// return(
-// <Router>
-//   <header>
-//     <nav>
-//       <Link to="/">Products</Link> | <Link to="/cart">Cart</Link>
-//     </nav>
-//   </header>
-//   <Routes>
-//     <Route path="/" element={<ProductList/>}/>
-//     <Route path="/cart" element={<Cart/>}/>
-//   </Routes>
-// </Router>
-// )
-// }
-// export default App;
-
 import { useState, useEffect } from "react";
-import ProductList from "./components/ProductList";
-import Cart from "./pages/Cart";
-import "./App.css"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ProductList from "./components/ProductList";
+import Navbar from './components/Navbar'
+import ProtectedRoute from "./components/ProtectedRoute";
+import Cart from "./pages/Cart";
+import "./App.css"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -68,20 +48,20 @@ function App() {
           </div>
         </nav>
       </header>
-      <div>
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductList />} />
+        {/* <Route path="/products" element={<ProductList />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-      </Routes>
-    </div>
-      <Routes>        
+    
+        <Route element={<ProtectedRoute />}>
         <Route path="/products" element={<ProductList/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        </Route>
       </Routes>
+
     </Router>
   );
 }
