@@ -1,10 +1,9 @@
-// import type { Product } from '../types/type'
 import { useGetAllProductsQuery } from '../features/products/productApi'
 import { useAppDispatch } from '../hooks/useAppDispatch' 
 import { useAppSelector } from '../hooks/useAppSelector'
 import { addToCart } from '../features/cart/cartSlice'
 import "../styles/pl.css"
-
+import { Link } from 'react-router-dom'
 const ProductList = () => {
   const { data, isLoading, error } = useGetAllProductsQuery()
   const dispatch = useAppDispatch();
@@ -17,16 +16,18 @@ const ProductList = () => {
     <div className="product-list">
       {data?.products.map((product) => (
         <div className="product" key={product.id}>
+          <Link to={`/product/${product.id}`}>
           <img src={product.thumbnail} alt={product.title} width={150} />
           <h3>{product.title}</h3>
+          </Link>
           <p>{product.price}$</p>
           {token ? (
             <button onClick={() => dispatch(addToCart(product))}>
               🛒Add To Cart
             </button>
-          ) : (
+           ) : (
             <p>🔒 Login fot Add</p>
-          )}
+          )} *
         </div>
       ))}
     </div>

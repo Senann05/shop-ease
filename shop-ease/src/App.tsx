@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import ProductList from "./components/ProductList";
+// import ProductList from "./components/ProductList";
 import Navbar from './components/Navbar'
-import ProtectedRoute from "./components/ProtectedRoute";
 import Cart from "./pages/Cart";
 import "./App.css"
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -52,14 +52,15 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/products" element={<ProductList />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/product/:id" element={<ProductDetail/>}></Route>
     
-        <Route element={<ProtectedRoute />}>
+        {/* <Route element={<ProtectedRoute />}>
         <Route path="/products" element={<ProductList/>}/>
         <Route path="/cart" element={<Cart/>}/>
-        </Route>
+        </Route> */}        {/* <Route path="/products" element={<ProductList />} /> */}
       </Routes>
 
     </Router>

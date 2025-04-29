@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRegisterMutation } from "../features/auth/authApi";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
-import { setCrenditials } from "../features/auth/authSlice";
+import { setCredentials } from "../features/auth/authSlice";
 import "../styles/regist.css"
 
 const Regiter = ()=>{
@@ -18,7 +18,7 @@ const Regiter = ()=>{
     e.preventDefault()
     try{
         const userData = await register({username, email, password}).unwrap()
-        dispatch(setCrenditials(userData))
+        dispatch(setCredentials(userData))
         navigate("/login")
     }catch(err){
         console.log("Error:" , err)

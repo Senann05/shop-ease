@@ -1,8 +1,8 @@
 import { useAppDispatch } from "../app/hooks";
 import { useLoginMutation } from "../features/auth/authApi";
 import { useNavigate } from "react-router-dom";
-import { setCrenditials } from "../features/auth/authSlice";
 import { useState } from "react";
+import { setCredentials } from "../features/auth/authSlice";
 import "../styles/login.css"
 
 const Login = ()=>{
@@ -17,8 +17,8 @@ const Login = ()=>{
     const handleSubmit = async(e: React.FormEvent)=>{
         e.preventDefault()
         try{
-            const userData = await login({username,password}).unwrap()
-            dispatch(setCrenditials(userData))
+            const data = await login({username,password}).unwrap()
+            dispatch(setCredentials({user: data.user,token: data.token}))
             navigate("/")
         }catch(err){
             console.error("Giris Melumatlari Yanlisdir", err)
